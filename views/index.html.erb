@@ -1,0 +1,28 @@
+<h1>Listing posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+        <td><a href="/posts/<%= post.id%>/edit">edit</a></td>
+        <td><form action="/posts/<%= post.id %>" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="delete">
+          </form></a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
