@@ -5,7 +5,6 @@ require 'sinatra/reloader' if development?
 require './models/post'
 require './config/database'
 
-# ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: 'foobar.db'
 
 class MyApp < Sinatra::Base
     # register Sinatra::ActiveRecordExtension
