@@ -51,6 +51,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  minitest
   rake
   sinatra-activerecord
   sinatra-contrib

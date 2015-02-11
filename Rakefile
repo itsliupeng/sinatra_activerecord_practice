@@ -1,15 +1,15 @@
-# Rakefile
 require "sinatra/activerecord/rake"
+require 'rake/testtask'
+
 
 namespace :db do
+  desc "load db config"
   task :load_config do
     require "./app"
-    puts "require ./app OK"
+    puts "hi, load_config"
   end
 end
 
-# namespace :dp do
-#   task :liupeng do
-#     puts "hello, world"
-#   end
-# end
+Rake::TestTask.new do |t|
+  t.pattern = "./spec/app_spec.rb"
+end

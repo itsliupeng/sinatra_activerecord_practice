@@ -1,19 +1,14 @@
-
-# app.rb
 require 'sinatra'
 require "sinatra/activerecord"
 require 'sinatra/reloader' if development?
 
+require './models/post'
+require './config/database'
 
-require './post.rb'
-#
-# # or set :database_file, "path/to/database.yml""
-
-
-ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: 'foobar.db'
+# ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: 'foobar.db'
 
 class MyApp < Sinatra::Base
-    register Sinatra::ActiveRecordExtension
+    # register Sinatra::ActiveRecordExtension
 
     use Rack::MethodOverride
 
@@ -25,7 +20,7 @@ class MyApp < Sinatra::Base
     post '/posts' do
       p params.inspect
       @post = Post.create!(title: params[:post][:title], content: params[:post][:content])
-      erb :"show.html"
+      redirect to "/posts/#{@post.id}"
     end
 
     get '/posts/new' do
@@ -46,10 +41,10 @@ class MyApp < Sinatra::Base
     end
 
     patch '/posts/:id' do
-      @post = Post.find(params[:id])
-      # @post.update()
-
-
+      p params
+      # @post = Post.find(params[:id])
+      # @post.update_attributes(params[:post])
+      # redirect to "/posts/#{@post.id}"
     end
 
     put '/posts/:id' do
@@ -57,7 +52,6 @@ class MyApp < Sinatra::Base
       @post = Post.find(params[:id])
       @post.update_attributes(params[:post])
       redirect to "/posts/#{@post.id}"
-
     end
 
     delete '/posts/:id' do
@@ -66,10 +60,5 @@ class MyApp < Sinatra::Base
       @post.destroy!
       redirect to "/posts"
     end
-
-
 end
-
-# post = Post.create!(title: "hello", content: "hello, world")
-# p post
 

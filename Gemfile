@@ -10,3 +10,5 @@ gem "rake"
 gem 'sinatra-contrib'
 
 
+gem 'minitest'
+
