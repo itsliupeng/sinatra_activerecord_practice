@@ -2,8 +2,10 @@ require 'sinatra'
 require "sinatra/activerecord"
 require 'sinatra/reloader' if development?
 
-require './models/post'
-require './config/database'
+# require File.expand_path '../models/post', __FILE__
+require_relative 'models/post'
+# require File.expand_path '../config/database', __FILE__
+require_relative 'config/database'
 
 
 class MyApp < Sinatra::Base

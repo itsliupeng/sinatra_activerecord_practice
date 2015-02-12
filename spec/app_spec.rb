@@ -7,7 +7,8 @@ describe "MyApp controller" do
   end
 
   it "should return OK" do
-    post '/posts'
+    # post '/posts'
+    get '/posts'
     last_response.ok?
   end
 end
