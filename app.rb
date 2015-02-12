@@ -6,6 +6,7 @@ require 'sinatra/reloader' if development?
 require_relative 'models/post'
 # require File.expand_path '../config/database', __FILE__
 # require_relative 'config/database'
+# require_relative 'config/environment'
 
 
 class MyApp < Sinatra::Base
