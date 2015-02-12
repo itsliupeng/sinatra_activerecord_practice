@@ -9,6 +9,9 @@
   <%= @post.content %>
 </p>
 
-<p>
-<a href="/posts/<%= @post.id %>" data-method="delete">Destroy</a>
-</p>
+<form action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete">
+</form>
+
+<a href="/posts"><button>index</button></a>

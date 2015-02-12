@@ -14,15 +14,15 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
-        <td><a href="/posts/<%= post.id%>/edit">edit</a></td>
+        <td><a href="/posts/<%= post.id%>/edit"><button>edit</button></a></td>
         <td><form action="/posts/<%= post.id %>" method="post">
             <input type="hidden" name="_method" value="DELETE">
             <input type="submit" value="delete">
-          </form></a></td>
+          </form></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<a href="/posts/new">New Post</a>
 
