@@ -11,5 +11,5 @@ namespace :db do
 end
 
 Rake::TestTask.new do |t|
-  t.pattern = "./spec/app_spec.rb"
+  t.pattern = "./spec/all_spec"
 end
